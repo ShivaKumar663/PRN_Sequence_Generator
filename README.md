@@ -98,6 +98,9 @@ PRN_Seq_out: This output produces 1023-bit long sequence based on the id we are 
 
 After integrating the all the modules in the top module, this will be the Elaborated Design.
 
+<img width="940" height="274" alt="image" src="https://github.com/user-attachments/assets/a6c0749d-a103-4f86-a354-6a27b0e92553" />
+
+
 
 
 
@@ -108,8 +111,12 @@ After writing those modules they will be integrated in the top module the output
 
 As we can see that rd_en and g2_ini is passing from PRN_ID module to the PRN_SEQ_GEN module. The CLK and RST will be common ports and the reset which is used here is Synchronous Reset which triggers only at the posedge edge of the CLK and the design will operate only at the posedge of the CLK.
 
-
 When the count reaches 1024 the sequence will start again after generating 1023-bit long sequence.
+<img width="940" height="218" alt="image" src="https://github.com/user-attachments/assets/a560906c-8fb7-4bbd-9799-1b40f6051b81" />
+
+
+
+
 Implementation Report
 After Implementation of the design, the design is occupying 19 LUT and 33 FF. After generating the timing report, we can see that all the timing constraints are met
 

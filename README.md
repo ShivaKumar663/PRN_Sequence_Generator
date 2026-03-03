@@ -19,7 +19,7 @@ Polynomial G1 and G2 are similar to the ones used by GPS C/A signal. The G1 and 
 
 
 
-<img width="916" height="577" alt="image" src="https://github.com/user-attachments/assets/e4257a8f-2d52-4ac2-b60f-9ebb5240759f" />
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/e4257a8f-2d52-4ac2-b60f-9ebb5240759f" />
 
 
 
@@ -50,9 +50,9 @@ When the particular ID is given as an input, during the “id_rst” condition t
 
 
 
-When the id_rst is low then rd_en will set to high and based on the PRN Id, the initial condition will be assigned at the output, later it will be passed to the next module i.e. PRN Sequence generator.  The code is attached to Annexure_I
+When the id_rst is low then rd_en will set to high and based on the PRN Id, the initial condition will be assigned at the output, later it will be passed to the next module i.e. PRN Sequence generator
 
- Simulation Result of the PRN_ID Selector
+
 
 
 
@@ -80,34 +80,9 @@ Output
 out: From this output the we will get the PRN Sequence which will be 1023 bit long.
 
 
-
-
-
-
 When rst goes high the shift registers will be initialized with Zeros and count register will set to One and flag register will set to Zero. When rst condition is set to Low, the rd_ene will be set to High. The g1and g2 shift registers will be initialized to their required initial conditions and flag register will set to high as the condition in the else if block is satisfied. The sequence will be generated based on the initial conditions of the registers. 
 
-
-
 At the next clock cycle the else if condition which contains the flag and rst condition will be satisfied from here the generation of actual sequence will starts. The count condition will be checked for every next clock cycle until the count value reaches to 1024, then the loop will be exited and registers will be set to their initial conditions.
-Annexure_II
-
-Simulation Result of the PRN Sequence Generator 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 PRN Sequence Generator Top Module
@@ -131,28 +106,15 @@ After integrating the all the modules in the top module, this will be the Elabor
 
 After writing those modules they will be integrated in the top module the output of the first module such as PRN Id and rd_ene will be passed as an input to the second module and other ports which are Clock, Reset, RD_ENE and PRN_Seq_out will be integrated to the top module.
 
-As we can see that rd_en and g2_ini is passing from PRN_ID module to the PRN_SEQ_GEN module. The CLK and RST will be common ports and the reset which is used here is Synchronous Reset which triggers only at the posedge edge of the CLK and the design will operate only at the posedge of the CLK. Annexure_III
+As we can see that rd_en and g2_ini is passing from PRN_ID module to the PRN_SEQ_GEN module. The CLK and RST will be common ports and the reset which is used here is Synchronous Reset which triggers only at the posedge edge of the CLK and the design will operate only at the posedge of the CLK.
 
 
-
-
-
-
-
-The output of the design will be verified using the behavioural simulation.  
-Simulation Result of the Design
-
-
-
-
-
-
-We can see the Reset is set to low at 12ns, the RD_ENE signal is set to high at 30ns and the generation of the sequence starts at 70ns.
 When the count reaches 1024 the sequence will start again after generating 1023-bit long sequence.
 Implementation Report
 After Implementation of the design, the design is occupying 19 LUT and 33 FF. After generating the timing report, we can see that all the timing constraints are met
 
 
+<img width="940" height="170" alt="image" src="https://github.com/user-attachments/assets/7e26fe60-6069-4edf-b70b-6791bec17a67" />
 
 
 We got all the values positively from this we can conclude that all the timing requirements are met
